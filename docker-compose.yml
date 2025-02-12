@@ -1,0 +1,18 @@
+# version: "3.2"
+# name: First app System
+
+# #object ke andr ek aur image 
+# services:
+#     app:
+
+#       build:
+#         context:
+#         dockerfile: dockerfile
+#       image: zzvariationsafk/firstapp:latest #image created jo hai woh dalni hai idhr
+#       ports: 
+#         - 3000:3000
+#       volumes: 
+#         - ./:/app/node_modules  #will show the host code
+
+#     db:
+#       image: mongo:latest
