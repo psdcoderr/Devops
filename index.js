@@ -1,18 +1,15 @@
 const express = require('express');
 const app = express();
-const mongoose = equire('mongoose');
+const mongoose = require('mongoose');
 const port = 3000;
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 
-
-try {
-  mongoose.connect("mongodb://db:27017/myapp")
-  console.log("DB connected")
-} catch (error) {
-  console.log("DB connection failed")
-}
+// MongoDB connection
+mongoose.connect("mongodb://db:27017/myapp", { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("DB connected"))
+  .catch((error) => console.log("DB connection failed", error));
 
 // Basic route
 app.get('/', (req, res) => {
@@ -27,4 +24,3 @@ app.get('/api/newapi', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-

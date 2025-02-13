@@ -13,6 +13,7 @@
 #     Street: 12
 
 
+
 name: Docker build and push
 
 on:
@@ -25,22 +26,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the repository
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
 
-      # Set up Docker Buildx
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v1
 
-      # Log in to Docker Hub
-      - name: Docker Hub Login
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.AreeshaFaisal944 }}" | docker login -u "${{ secrets.ZZVARIATIONSAFK }}" --password-stdin
 
-      # Build the Docker image
       - name: Build Docker image
-        run: docker build -t psdcoder/myfirstapp:v0.0.1 .
+        run: docker build -t zzvariationsafk/firstapp:latest .
 
-      # Push the Docker image to Docker Hub
       - name: Push Docker image
-        run: docker push psdcoder/myfirstapp:v0.0.1
-
+        run: docker push zzvariationsafk/firstapp:latest
